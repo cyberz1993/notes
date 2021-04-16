@@ -1,0 +1,29 @@
+import random
+
+lives = 5
+word_list = ["welkom", "tijger", "super"]
+chosen_word = word_list[random.randint(0,2)]
+guess = ""
+list = []
+
+
+for i in range(len(chosen_word)):
+    list.append("_")
+
+while lives != 0:
+    print(list)
+    guess = input("guess the word")
+    if guess in chosen_word:
+        print("correct")
+        for x in range(len(list)):
+            if guess in list[x]:
+                list[x] = guess
+
+
+
+
+
+
+
+print(list)
+
