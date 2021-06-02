@@ -1,0 +1,28 @@
+# could not get the code to work 
+
+import getpass, sys, telnetlib
+
+host = "192.168.122.71"
+user = b"cisco"
+password = getpass.getpass()
+
+tn = telnetlib.Telnet(host, 23)
+
+tn.read_until(b"Username: ")
+tn.write(user + b"\n")
+
+if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b" \n")
+
+
+tn.write(b"enable \n")
+tn.write(b"config t \n")
+
+tn.write(b"username test1 password test1233 \n")
+
+tn.write(b"interface loopback 0 \n")
+tn.write(b"ip address 10.1.1.1 255.255.255.0 \n")
+tn.write(b"no shut  \n")
+tn.write(b"exit")
+
