@@ -35,7 +35,7 @@ finishline.goto(300, -100)
 finishline.pendown()
 finishline.goto(300, 200)
 
-time.sleep(10)
+time.sleep(2)
 
 while xtimmy < 300 or xjohny < 300 or xpeter < 300 or xbecky < 300:
     if xtimmy < 300:
