@@ -1,0 +1,61 @@
+import turtle,time, random
+
+timmy = turtle.Turtle()
+johny = turtle.Turtle()
+peter = turtle.Turtle()
+becky = turtle.Turtle()
+display = turtle.Screen()
+
+def speed(speed):
+    speed = 0 + speed
+    return speed
+
+def position(name, position, color):
+    name.penup()
+    name.color(color)
+    name.setx(-300)
+    name.sety(position)
+    name.shape("turtle")
+
+
+position(timmy, 25, "green")
+position(johny, 50, "purple")
+position(peter, 75, "blue")
+position(becky, 100, "red")
+
+xtimmy = -300
+xjohny = -300
+xpeter = -300
+xbecky = -300
+
+finishline = turtle.Turtle()
+finishline.hideturtle()
+finishline.penup()
+finishline.goto(300, -100)
+finishline.pendown()
+finishline.goto(300, 200)
+
+time.sleep(10)
+
+while xtimmy < 300 or xjohny < 300 or xpeter < 300 or xbecky < 300:
+    if xtimmy < 300:
+        xtimmy = xtimmy + random.randint(1, 5)
+    timmy.goto(xtimmy, 25)
+    time.sleep(0.03)
+
+    if xjohny < 300:
+        xjohny = xjohny + random.randint(1, 5)
+    johny.goto(xjohny, 50)
+    time.sleep(0.03)
+
+    if xpeter < 300:
+        xpeter = xpeter + random.randint(1, 5)
+    peter.goto(xpeter, 75)
+    time.sleep(0.03)
+
+    if xbecky < 300:
+        xbecky = xbecky + random.randint(1, 5)
+    becky.goto(xbecky, 100)
+    time.sleep(0.03)
+
+display.exitonclick()
