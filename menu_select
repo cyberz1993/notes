@@ -34,4 +34,4 @@ def main(stdscr):
                 print_screen(stdscr, current_row_idx)
                 
                 
-               
+curses.wrapper(main)               
