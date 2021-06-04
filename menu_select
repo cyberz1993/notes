@@ -1,0 +1,37 @@
+#basic menu select only works in the cli 
+
+import curses, time 
+
+list = ["start", "score", "exit", "extra"]
+
+def print_screen(stdscr, selected_row_idx):
+        stdscr.clear()
+        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+        y = 0
+        for idx, row in enumerate(list):
+                y = y + 1 
+                if idx == selected_row_idx: 
+                        stdscr.attron(curses.color_pair(1))
+                        stdscr.addstr(y, 0, row)
+                        stdscr.attroff(curses.color_pair(1))
+                else:
+                        stdscr.addstr(y, 0, row)
+         
+        stdscr.refresh()
+
+
+def main(stdscr):
+        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+        curses.curs_set(0) 
+        current_row_idx = 0
+        print_screen(stdscr, current_row_idx)
+        while True:
+                key = stdscr.getch()
+                if key == curses.KEY_DOWN:
+                        current_row_idx += 1
+                elif key == curses.KEY_UP:
+                        current_row_idx -= 1
+                print_screen(stdscr, current_row_idx)
+                
+                
+               
