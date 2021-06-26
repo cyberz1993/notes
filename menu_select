@@ -1,37 +1,46 @@
-#basic menu select only works in the cli 
-
 import curses, time 
 
-list = ["start", "score", "exit", "extra"]
+options = ["start", "exit", "leaderboard"]
 
-def print_screen(stdscr, selected_row_idx):
-        stdscr.clear()
+def epic_screen(stdscr, current_row):
         curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
-        y = 0
-        for idx, row in enumerate(list):
-                y = y + 1 
-                if idx == selected_row_idx: 
-                        stdscr.attron(curses.color_pair(1))
-                        stdscr.addstr(y, 0, row)
-                        stdscr.attroff(curses.color_pair(1))
+        size = stdscr.getmaxyx()  
+        for i, o in enumerate(options):
+                locationx = size[1] // 2 - len(o) // 2
+                if current_row == i:
+                        stdscr.attron(curses.color_pair(1)) 
+                        stdscr.addstr(i, locationx , o)
+                        stdscr.attroff(curses.color_pair(1)) 
                 else:
-                        stdscr.addstr(y, 0, row)
-         
+                        stdscr.addstr(i, locationx , o)
         stdscr.refresh()
-
+        
+	
 
 def main(stdscr):
-        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
         curses.curs_set(0) 
-        current_row_idx = 0
-        print_screen(stdscr, current_row_idx)
-        while True:
+        current_row = 0 
+        epic_screen(stdscr, current_row)
+        program = True 
+        while program == True : 
                 key = stdscr.getch()
-                if key == curses.KEY_DOWN:
-                        current_row_idx += 1
-                elif key == curses.KEY_UP:
-                        current_row_idx -= 1
-                print_screen(stdscr, current_row_idx)
-                
-                
-curses.wrapper(main)               
+                print(key)
+                if key == curses.KEY_DOWN and current_row < 2:
+                        current_row = current_row + 1  
+                        epic_screen(stdscr, current_row)  
+                elif key == curses.KEY_UP and current_row > 0:
+                        current_row -= 1
+                        epic_screen(stdscr, current_row)
+                elif key in [10, 13]:
+                        stdscr.clear()
+                        stdscr.addstr(0, 0, "you selected" + options[current_row])
+                        stdscr.refresh()
+                        stdscr.getch()                       
+                elif key in [27]: 
+                        break
+
+                        
+	
+
+
+curses.wrapper(main)           
