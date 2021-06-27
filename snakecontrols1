@@ -1,0 +1,58 @@
+import curses, time 
+from curses import textpad 
+# number 27 for escape button 
+
+def main(stdscr):
+        curses.curs_set(0) 
+        size = stdscr.getmaxyx()
+        
+        stdscr.addstr(0, 0, "presss the arrow keys to move, game will start in 5 seconds ")
+        stdscr.addstr(1, 0, "press any button to continue") 
+        stdscr.refresh() 
+        stdscr.getch()
+        stdscr.clear() 
+        
+        snake = [[5,5], [5, 6],[5, 7]]
+        direction = curses.KEY_RIGHT
+        
+        for y, x in snake:
+                stdscr.addstr(y, x, "#")
+                stdscr.refresh() 
+        
+        while 1:
+                key = stdscr.getch()
+                
+                if key in [curses.KEY_RIGHT , curses.KEY_LEFT  , curses.KEY_UP , curses.KEY_DOWN ]:
+                        direction = key 
+                                
+                
+                head = snake[2] 
+                
+                if key == curses.KEY_RIGHT:
+                        new_head = [head[0], head[1] + 1]
+                elif key == curses.KEY_LEFT:
+                        new_head = [head[0], head[1] - 1]
+                elif key == curses.KEY_UP:
+                        new_head = [head[0] -1, head[1]]
+                elif key == curses.KEY_DOWN:
+                        new_head = [head[0] + 1 , head[1]]
+                elif key == [27]:
+                        break
+                
+                snake.insert(3, new_head)
+                stdscr.addstr(new_head[0], new_head[1], "#")
+                stdscr.addstr(snake[0][0], snake[0][1], " ")
+                snake.pop(0)
+                
+                stdscr.refresh()
+        
+        
+                
+
+        test = stdscr.getch() 
+        stdscr.addstr(0, 0, str(test))
+        stdscr.refresh() 
+        time.sleep(3)
+        
+
+curses.wrapper(main) 
