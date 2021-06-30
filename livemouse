@@ -1,0 +1,14 @@
+#displays mouse position live 
+
+import pyautogui, time, curses 
+
+def main(stdscr):
+        
+        while True: 
+                stdscr.clear() 
+                position = pyautogui.position() 
+                stdscr.addstr(str(position)) 
+                stdscr.refresh() 
+                time.sleep(0.01)
+
+curses.wrapper(main) 
