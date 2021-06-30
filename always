@@ -1,0 +1,5 @@
+#auto hot key file to set some windows alwasy on the top, since this functionality is missing from windows for some reason 
+
+#a::
+	WinSet, AlwaysOnTop, , A
+	Return
