@@ -1,0 +1,4 @@
+
+update-help
+get-command * 
+get-help stop-process
