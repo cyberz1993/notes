@@ -1,0 +1,149 @@
+import os 
+os.listdir()  	#same as: dir, ls commands 
+os.chdir() 		#same as: cd commands 
+os.getcwd() 	#same as: pwd 
+
+import netmiko 
+iosv = {
+	"device_type": "cisco_ios",
+	"ip": "192.168.122.2",
+	"username": "zizo",
+	"password": "cisco123"
+} 
+
+net_connect = netmiko.ConnectHandler(**iosv)
+output = net_connect.send_command("show ip int brief")
+print(output) 
+
+with open(commands.txt) as f:
+	commands = f.read().splitlines()
+output = netmiko.send_config_set(commands) 
+
+config_commands = ["int loop 0", "ip address 1.1.1.1 255.255.255.0"]
+output = net_connect.send_config_set(config_commands)
+print(output) 
+
+import time 
+time.sleep(1) 
+
+import random 
+random.randint(1, 10) 
+
+import pyautgui (pip install pyautogui) 
+pyautgui.position() 		#get current mouse position 
+pyautgui.click(x, y)  		#click on this position
+pyautogui.press('enter')	#presses enter on the keyboard, can also enter the text or variable you want to type in 
+pyautogui.moveTo(x, y) 		#moves mouse to this location absoluut position 
+pyautgui.move(x, y)			#moves mouse from current position 
+pyautogui.mouseDown()
+pyautogui.mouseUp() 
+pyautogui.doubleClick() 
+pyautogui.hscroll(10) 
+
+import pyscreenshot
+img = 1 
+im = pyscreenshot.grab()
+im.save(r"img/goblin + str(img) + ".png", "png") 
+
+import optparse
+parser = optparse.OptionParser()
+parser.add_option ("-w", "--web", dest="website")
+parser.add_option ("-o", "--open", dest="open")
+options = parser.parse_args()                       #returns a dictionary with the second item being an empty list 
+
+web = options[0].website
+print(web) 
+open = options[0].open
+print(open)
+
+
+import curses (standard library) 
+stdscr = curses.initscr() 		#opening window screen
+curses.endwin() 				#closing window screen 
+curses.wrapper(main) 			#combination of both the above, needs main function 
+curses.curs_set(0) 				#disables cursor, set vallue to 1 to enable 
+curses.KEY_UP
+
+curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)  	#set color (id number, color, backgroundcolor)) 
+stdscr.attron(curses.color_pair(1)) 							#attribute of the color pair we just created specify the id number 
+stdscr.attroff(curses.color_pair(1)) 
+
+stdscr.refresh()
+stdscr.clear() 
+
+stdscr.getch()				#waits for char input, returns integer
+stdscr.getkey				#waits for char input, returns string 
+stdscr.nodelay(1) 			#does not wait for char input but will continue the code even if the user did not press a thing 
+stdscr.timeout(100) 		#will set the no delay to 100 ms, meaning the program will wait 100 ms for user input
+stdscr.getmaxyx() 			#will outout a list of the screen height and width 
+
+stdscr.addstring(0, 0, "text") 				#prints on the screen y position, x position, text 
+
+import socket 
+simple tcp clinet 
+target_host = "www.google.com" 								#set targer host variable 
+target_port = 80 											#set target port variable 
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  #configure client variable using af_inet (Ipv4, hostname) and sock_stream (tcp) 
+client.connect((target_host, target_port)) 					#connect using (www.google.com) and (tcp port 80 for http) 
+client.send(b"GET / HTTP/1.1 \r\n \r\n") 					#send an http get request, must be byte formatted 
+response = client.recv(4096)								#set variable to response 
+print(response.decode()) 									#print decoded text as data recieved is in byte format
+client.close() 												#close tcp session 
+
+import pygame 
+white = (255, 255, 255) 								#declare a color using rgb, must be inside a tuple 
+pygame.init() 											#initiate pygame 
+screen = pygame.display.set_mode((500, 400)) 			#creates a windows (x, y) values 
+screen.fill(white)										#background color with previously created tuple 
+pygame.draw.line(screen, blue, (60, 60), (120, 60), 60)	#draws a line: window, color, (from), (to), width
+pygame.display.update() 								#refreshss the screen 
+pygame.key.set_repeat(1, 1)
+clock = pygame.time.Clock()								#create a variable to set clock rate later 
+clock.tick(60) 											#sets the loop to 60 times per second 
+
+for events in pygame.event.get(): 
+	if event.type == pygame.KEYDOWN:
+		if event.key == pygame.K_DOWN: 					#this combo is to listen to keys pressed down and then the down arrow key 
+		
+createfont = pygame.font.SysFont(None , 48)
+createtext = createfont.render('Hello world!', True, blue)
+screen.blit(createtext, (60, 60))
+
+surface = pygame.Surface((200, 200)) 
+screen.blit(surface, (100, 150) 
+
+bg = pygame.image.load("sprites.image1.png) 
+bgscale = pygame.transform.scale(bg, (width, height)) 
+screen.blit(bgscale, (position_x, position_Y)) 			#position should be 0 for background 
+
+import openpyxl 
+workbook = openpyxl.load_workbook("example.xlsx") 		#opens the xl file inside of the variable 
+workbook.get_sheet_names()								#get names of the sheet inside the file 
+sheet = workbook.get_sheet_by_name("Sheet1") 			#stores sheet in the variable 
+print(sheet["a7"].value) 								#prints the value of the cell in the sheet 
+print(sheet.cell(row=1, column=2).value) 				#same as above but with integers numbers great for loops 
+
+clock = pygame.time.Clock() 
+clock.tick(60)
+
+create_font = pygame.font.Font(None, 20)
+create_text = create_font.render(create_font, False, black)
+screen.blit(create_text, (300, 300))
+
+box = pygame.Surface((200, 200 ))
+screen.blit(box. (500, 400 ) ) 
+
+image = pygame.image.load("img/img1.png")
+image_scale = pygame.transform.scale(image, (200, 200)) 
+screen.blit(image_scale, ( 400, 400)) 
+
+
+
+
+
+when the war of the beasts brings about the worlds end the goddess descends from the skies wings of light and dark spread afar she guides us to bliss her gift everlasting
+
+
+
+
+
