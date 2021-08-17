@@ -3,31 +3,29 @@ os.listdir()  	#same as: dir, ls commands
 os.chdir() 		#same as: cd commands 
 os.getcwd() 	#same as: pwd 
 
-import netmiko 
-iosv = {
-	"device_type": "cisco_ios",
-	"ip": "192.168.122.2",
-	"username": "zizo",
-	"password": "cisco123"
-} 
-
-net_connect = netmiko.ConnectHandler(**iosv)
-output = net_connect.send_command("show ip int brief")
-print(output) 
-
-with open(commands.txt) as f:
-	commands = f.read().splitlines()
-output = netmiko.send_config_set(commands) 
-
-config_commands = ["int loop 0", "ip address 1.1.1.1 255.255.255.0"]
-output = net_connect.send_config_set(config_commands)
-print(output) 
 
 import time 
 time.sleep(1) 
 
+import clipboard 
+copy = clipboard.copy("abc")
+
+import keyboard 
+key = keyboard.is_pressed("ctrl+space")
+
 import random 
 random.randint(1, 10) 
+
+import threading 
+def test():
+	print("hello")
+	time.sleep(1)
+	print("world")
+
+x = threading.Thread(target=test) 
+x.start() 
+
+x = threading.Thread(target=test, args=(4,)) 				#you always have to put a comma because else the tuple braces will be removed 
 
 import pyautgui (pip install pyautogui) 
 pyautgui.position() 		#get current mouse position 
@@ -39,6 +37,7 @@ pyautogui.mouseDown()
 pyautogui.mouseUp() 
 pyautogui.doubleClick() 
 pyautogui.hscroll(10) 
+pyautogui.typewrite("what u want") 
 
 import pyscreenshot
 img = 1 
@@ -90,6 +89,45 @@ response = client.recv(4096)								#set variable to response
 print(response.decode()) 									#print decoded text as data recieved is in byte format
 client.close() 												#close tcp session 
 
+
+import netmiko 
+iosv = {
+	"device_type": "cisco_ios",
+	"ip": "192.168.122.2",
+	"username": "zizo",
+	"password": "cisco123"
+} 
+
+net_connect = netmiko.ConnectHandler(**iosv)
+output = net_connect.send_command("show ip int brief")
+print(output) 
+
+with open(commands.txt) as f:
+	commands = f.read().splitlines()
+output = netmiko.send_config_set(commands) 
+
+config_commands = ["int loop 0", "ip address 1.1.1.1 255.255.255.0"]
+output = net_connect.send_config_set(config_commands)
+print(output) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import pygame 
 white = (255, 255, 255) 								#declare a color using rgb, must be inside a tuple 
 pygame.init() 											#initiate pygame 
@@ -136,14 +174,3 @@ screen.blit(box. (500, 400 ) )
 image = pygame.image.load("img/img1.png")
 image_scale = pygame.transform.scale(image, (200, 200)) 
 screen.blit(image_scale, ( 400, 400)) 
-
-
-
-
-
-when the war of the beasts brings about the worlds end the goddess descends from the skies wings of light and dark spread afar she guides us to bliss her gift everlasting
-
-
-
-
-
