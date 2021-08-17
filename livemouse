@@ -1,14 +1,26 @@
-#displays mouse position live 
+import curses, keyboard, time, clipboard, pyautogui
 
-import pyautogui, time, curses 
+def main(stdscr): 
+    curses.curs_set(0) 
 
-def main(stdscr):
+    while True: 
+        stdscr.clear()
+        position = pyautogui.position() 
         
-        while True: 
-                stdscr.clear() 
-                position = pyautogui.position() 
-                stdscr.addstr(str(position)) 
-                stdscr.refresh() 
-                time.sleep(0.01)
+        position2 = str(position) 
+        position3 = position2.replace(")", "") 
+        position3 = position3.replace("y", "")
+        position3 = position3.replace("=", "") 
+        position3 = position3[7:]
+        
+        stdscr.addstr(position2) 
+
+        key = keyboard.is_pressed('ctrl+space')
+        if key == True: 
+            text = clipboard.copy(position3)        
+        
+        stdscr.refresh()
+        time.sleep(0.01)
+
 
 curses.wrapper(main) 
