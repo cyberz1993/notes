@@ -1,4 +1,9 @@
-
 update-help
 get-command * 
 get-help stop-process
+
+
+
+configure new password in ad 
+$password = convertto-securestring "password123" -asplaintext -force 
+set-adaccountpassword "laura roslin" -reset -newpassword $password 
