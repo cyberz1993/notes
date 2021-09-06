@@ -1,6 +1,18 @@
+day 1 basics 
 update-help
 get-command * 
+get-command *aduser* 
 get-help stop-process
+get-help stop-process -example 
+get-process -name *notepad*, *server* | stop-process 
+stop-process -id 1013 
+start firefox.exe 
+
+
+
+
+
+
 
 
 
