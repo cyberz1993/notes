@@ -7,6 +7,7 @@ get-help stop-process -example
 get-process -name *notepad*, *server* | stop-process 
 stop-process -id 1013 
 start firefox.exe 
+$psversiontable 
 
 
 
