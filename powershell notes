@@ -16,3 +16,9 @@ or
 get-aduser johny | set-adaccountpassword -newpassword (convertto-securestring -asplaintext "password1!" -force) 
 alternativily 
 set-adaccountpassword "laura roslin" -reset -newpassword $password 
+
+get members of 
+get-aduser johny | get-adprincipalgroupmembership 
+or 
+get-adprincipalgroupmembership johny 
+
