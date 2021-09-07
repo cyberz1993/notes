@@ -17,6 +17,9 @@ get-aduser johny | set-adaccountpassword -newpassword (convertto-securestring -a
 alternativily 
 set-adaccountpassword "laura roslin" -reset -newpassword $password 
 
+find users 
+Get-AdUser -Filter "givenName -eq 'johny'"
+
 get members of 
 get-aduser johny | get-adprincipalgroupmembership 
 or 
