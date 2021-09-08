@@ -30,6 +30,7 @@ get-adprincipalgroupmembership johny
 get-netipconfiguration
 get-netipinterface 
 get-netipaddress
+get-netipadapter                                                                          #find the adapters 
 
 #to configure manual ip address 
 new-netipaddress -interfaceindex 9 -ipaddress 192.168.126.131 -prefixlength 24 
