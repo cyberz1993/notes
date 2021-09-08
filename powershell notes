@@ -9,7 +9,9 @@ stop-process -id 1013
 start firefox.exe 
 $psversiontable 
 
-configure new password in ad 
+
+#active directory stuff
+#configure new password in ad 
 $password = convertto-securestring "password123" -asplaintext -force 
 get-aduser johny | set-adaccountpassword -newpassword $password 
 or 
@@ -24,4 +26,21 @@ get members of
 get-aduser johny | get-adprincipalgroupmembership 
 or 
 get-adprincipalgroupmembership johny 
+
+
+#ip configuration stuff 
+#first find the interface index 
+get-netipconfiguration
+get-netipinterface 
+get-netipaddress
+
+#to configure manual ip address 
+new-netipaddress -interfaceindex 9 -ipaddress 192.168.126.131 -prefixlength 24 
+set-netipaddress -interfaceindex 0 -ipaddress 192.168.126.131 -prefixlength 24 
+#add the address family with -addressfamily ipv4 or ipv6 
+
+#configure ip address through dhcp 
+set-netipinterface -interfaceindex 9 -dhcp enabled
+
+
 
