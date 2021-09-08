@@ -14,17 +14,14 @@ $psversiontable
 #configure new password in ad 
 $password = convertto-securestring "password123" -asplaintext -force 
 get-aduser johny | set-adaccountpassword -newpassword $password 
-or 
 get-aduser johny | set-adaccountpassword -newpassword (convertto-securestring -asplaintext "password1!" -force) 
-alternativily 
 set-adaccountpassword "laura roslin" -reset -newpassword $password 
 
-find users 
+#find users based on given name
 Get-AdUser -Filter "givenName -eq 'johny'"
 
-get members of 
-get-aduser johny | get-adprincipalgroupmembership 
-or 
+#find the groups the user belongs to 
+get-aduser johny | get-adprincipalgroupmembership  
 get-adprincipalgroupmembership johny 
 
 
@@ -41,6 +38,4 @@ set-netipaddress -interfaceindex 0 -ipaddress 192.168.126.131 -prefixlength 24
 
 #configure ip address through dhcp 
 set-netipinterface -interfaceindex 9 -dhcp enabled
-
-
 
