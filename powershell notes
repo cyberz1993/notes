@@ -40,3 +40,4 @@ set-netipaddress -interfaceindex 0 -ipaddress 192.168.126.131 -prefixlength 24
 #configure ip address through dhcp 
 set-netipinterface -interfaceindex 9 -dhcp enabled
 
+Set-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ("10.0.0.1","10.0.0.2")
