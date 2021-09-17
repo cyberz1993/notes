@@ -14,6 +14,6 @@ get-netipconfiguration
 get-netadapter 
 
 #set static ip address vs dhcp address 
-new-netipaddress -interfaceindex 1 -ipaddress 10.1.1.1 -prefixlength 24 
+new-netipaddress -interfaceindex 1 -ipaddress 10.1.1.2 -defaultgateway 10.1.1.1 -prefixlength 24 
 set-netipinterface -interfaceindex 1 -dhcp enabled 
 et-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ("10.0.0.1","10.0.0.2")
