@@ -1,0 +1,18 @@
+#help commands 
+get-command
+get-help 
+update-help 
+get-alias cd 
+
+#ranaming the computer 
+rename-computer -newname dc -localcredential .\administrator -passthru 
+restart-computer 
+
+#get ip address (ipconig /all) 
+get-netipaddress 
+get-netipconfiguration 
+get-netadapter 
+
+#set static ip address vs dhcp address 
+new-netipaddress -interfaceindex 1 -ipaddress 10.1.1.1 -prefixlength 24 
+set-netipinterface -interfaceindex 1 -dhcp enabled 
