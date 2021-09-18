@@ -8,6 +8,7 @@ get-alias cd
 rename-computer -newname server-dc -localcredential .\administrator -passthru 
 restart-computer 
 
+
 #get ip address (ipconig /all) 
 get-netipaddress 
 get-netipconfiguration 
@@ -31,3 +32,21 @@ get-aduser test1
 get-aduser -filter "givenname -eq 'john' "    #grepable 
 $password = convertto-securestring "Password1!" -asplaintext -force 
 set-adaccountpassword "user1" -reset -newpassword $password
+
+
+
+
+
+
+#remote desktop 
+#get gatename and server name
+get-rdDeploymentGatewayConfiguration 
+get-rdServer 
+
+#logging out user 
+get-rdusersession 
+Disconnect-RDUser -HostServer server2019-rds01.zizo.local -UnifiedSessionID 4
+Invoke-RDUserLogoff -HostServer "server2019-rds01.zizo.local" -UnifiedSessionID 4
+
+
+
