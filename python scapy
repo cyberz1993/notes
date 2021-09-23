@@ -1,0 +1,16 @@
+import scapy.all
+
+#sniffing packets 
+#example sniffing spanning tree packets, spanning tree sends all data to the common destination mac address for spanning tree: 01:80:c2:00:00:00
+#this will sniff all packets using ethernet(layer) with a destination mac address of 01:80:c2:: to the count of 1 if you want to sniff more packets u increase the count
+packet = scapy.all.sniff(filter="ether dst 01:80:c2:00:00:00", count=1)     
+
+#to view your packet you state the object u create with the positional vallue which specifies the count, note you can also add a second positional vallue for viewing just a layer. 
+packet[0].show() 
+packet[0] 
+
+#edditing packets, changing vallues of our captured packet
+packet[0].pathcost = 1 
+
+#sending packets, sending our modified packet
+scapy.all.sendp(packet[0])
