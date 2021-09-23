@@ -86,7 +86,7 @@ def main():
 	except KeyboardInterrupt: 
 		print(" restore " )  
 		arp_restore(router_ip, router_mac, victim_ip, victim_mac)
-		arp_restor(victim_ip, victim_mac, router_ip, router_mac) 
+		arp_restore(victim_ip, victim_mac, router_ip, router_mac) 
 		quit()
 		
 main() 
