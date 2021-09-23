@@ -1,0 +1,50 @@
+import pygame
+import sys 
+import os 
+
+#set the location of the window 
+os.environ['sdl_video_window_pos'] = "%d, %d" % (20, 200)
+
+pygame.init() 
+pygame.quit() 
+
+#create pygame display
+screen = pygame.display.set_mode((800, 400)) 
+pygame.display.set_caption("the game") 
+
+#create clock object and tick it to 60 fps, the tick must be inside of a loop 
+clock = pygame.time.Clock() 
+clock.tick(600 
+
+#end program when x button pressed
+for events in pygame.event.get(): 
+  if events.type == pygame.QUIT:
+    pygame.quit()
+    sys.exit() 
+
+surface = pygame.surface((50, 50))              #size of the surface 
+surface.fill((255,0,0))                         #color of the surface 
+surface_rect = surface.get_rect(topleft=(50, 50))
+
+#loading an image, must be converted so it works better with pygame 
+bg = pygame.image.load("image/sky.png").convert() 
+grount = pygame.image.load("image/ground.png").convert() 
+
+#load image and scale image, create rectangle for the hitbox. 
+player_surface = pygame.image.load("image/player.png").convert_alpha() 
+player_scale = pygame.scale.transfom(player_surface, (50, 50))        #first vallue the image , second vallue the size 
+player_rect = player_scale.get_rect(topleft=(50, 50))
+screen.blit(player_scale, player_rect) 
+
+#edit x and y vallues of the rect 
+player_rect.x = 500 
+player_rect.y = 500 
+
+#rect collision 
+if player_rect.colliderect(surface_rect): player_rect.x = 700
+
+#control 
+for events in pygame.event.get():
+  if events.type == pygame.key_down: 
+    if events.key == pygame.k_space:
+      player_rect.y += 5 
