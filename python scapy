@@ -1,5 +1,54 @@
 import scapy.all
 
+#sniffing packets, you can filter on packet type in this example arp
+scapy.all.sniff(filter="arp", count=0) 
+
+#showing the capture 
+scapy[0].show()           #will show the first captured packet 
+
+#getting the mac address from the ip address 
+scapy.all.getmacbyip("192.168.1.1") 
+
+#creating an arp packet 
+source_mac = aa:aa:aa:aa:aa:aa
+dest_mac = bb:bb:bb:bb:bb:bb
+source_ip = 192.168.1.1 
+dest_ip = 192.168.1.101
+packet = scapy.all.arp(op="is-at", hwsrc=source_mac, psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
+
+#sending a packet 
+scapy.all.send(packet, verbose=False) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #sniffing packets 
 #example sniffing spanning tree packets, spanning tree sends all data to the common destination mac address for spanning tree: 01:80:c2:00:00:00
 #this will sniff all packets using ethernet(layer) with a destination mac address of 01:80:c2:: to the count of 1 if you want to sniff more packets u increase the count
@@ -14,3 +63,7 @@ packet[0].pathcost = 1
 
 #sending packets, sending our modified packet
 scapy.all.sendp(packet[0])
+
+#get mac by ip 
+mac = scapy.all.getmacbyip("192.168.1.1") 
+
