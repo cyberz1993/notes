@@ -5,6 +5,46 @@ import subprocess
 subprocess.run("ifconfig", shell=True)      #with shell as true you can write the commands just like you would in a shell
 subprocess.run(["ls", "l"])                 #this
 
+#capture the output or stdout
+a = subprocess.run(["ls", "-l"], capture_output = True, text=True)    #capture_output will safe the output encoded, text argument displays it normally 
+a = subprocess.run(["ls", "l"], stdout=subprocess.PIPE, text=True) 
+print(f.stdout) 
+
+#write the output to a txt file
+with open("output.txt", "w") as f:
+  subprocess.run(["ls", "l"], stdout=f, text=True) 
+
+#return true if ther is an error 
+a = subprocess.start(["ls", "-adf"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
+a.returncode                                    #this will return 1 if there was an error 
+
+#redirect errors to null 
+a = subprocess.start(["ls", "adf"], stderr=subprocess.DEVNULL) 
+
+#Popen 
+command = subprocess.Popen("ipconfig /all).split(" "), stdout=subprocess.PIPE, stdout=subprocess.PIPE) 
+out, err = command.communicate() 
+print(out) 
+
+
+#socket programming 
+#create socket object 
+clientSocket = socket.socket(AF_INET, SOCK_STREAM)     #socket ipv4 with tcp 
+clientSocket = socket.socket(AF_INET6, SOCK_DGRAM)     #socket ipv6 with udp 
+
+#connect socket 
+clientSocket.connect(( <taget ip>, <target port> ))
+
+#sending data over connected socket 
+clientSocket.send("bot reporting for duty".encode())   #data must be encoded before sending over a tcp stream 
+
+#recieving data, while exucting this code the code will wait for data 
+command = clientSocket.recv(4096).decode()             #must decode recieved data since it was encoded before sending on the other side (4096 is max size) 
+
+#clienSocket.close()                                    #end the tcp connection
+
+
+
 
 
 #linux stuff 
