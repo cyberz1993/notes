@@ -1,0 +1,19 @@
+#subprocess 
+import subprocess 
+
+#run a command in the shell
+subprocess.run("ifconfig", shell=True)      #with shell as true you can write the commands just like you would in a shell
+subprocess.run(["ls", "l"])                 #this
+
+
+
+#linux stuff 
+#nmap 
+nmap -sV <victim ip>        #scans version (scans open ports and version of the application/process running it) 
+nmap -sS <victim ip>        #syn scan (only scans using the syn packet, not establish full connection, it is faster and stealthier) 
+nmap -sF <victim ip>        #scan fin (used to bypass firewall protections) 
+nmap -sX <victim ip>        #xmas scan 
+
+#netcat 
+netcat <target ip> <target port>    #starts a shell connection (ftpd2.3.4 ports 6200) 
+
