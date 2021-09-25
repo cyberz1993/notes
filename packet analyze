@@ -1,0 +1,8 @@
+#wireshark filter construction 
+[Protocol].[header/field] [operator: +,==,!=] [value]
+
+#filter ip address with destination address 
+ip.dst = 192.168.1.101 
+
+#filter on all the packets that contain keyword login 
+eth contains login 
