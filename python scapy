@@ -22,7 +22,7 @@ scapy.all.send(packet, verbose=False)
 
 #netifaces 
 #save ur mac
-mac = netifaces.ifaddresses("eth0)[netifaces.AF_LINK]
+mac = netifaces.ifaddresses("eth0")[netifaces.AF_LINK]
 my_mac = mac[0]["addr"]
 
 #save ur ip 
