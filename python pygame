@@ -16,6 +16,9 @@ pygame.display.set_caption("the game")
 clock = pygame.time.Clock() 
 clock.tick(600 
 
+#set repeating keys 
+pygame.key.set_repeat(1, 1)
+
 #end program when x button pressed
 for events in pygame.event.get(): 
   if events.type == pygame.QUIT:
