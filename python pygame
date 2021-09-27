@@ -45,6 +45,6 @@ if player_rect.colliderect(surface_rect): player_rect.x = 700
 
 #control 
 for events in pygame.event.get():
-  if events.type == pygame.key_down: 
+  if events.type == pygame.KEYDOWN: 
     if events.key == pygame.k_space:
       player_rect.y += 5 
