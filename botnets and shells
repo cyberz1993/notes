@@ -42,6 +42,11 @@ nmap -sX <victim ip>        #xmas scan
 #netcat 
 netcat <target ip> <target port>    #starts a shell connection (ftpd2.3.4 ports 6200) 
 
+#running simple http server 
+python -m http.server 8080
+
+#downloading file with wget 
+wget <ip>:<port>/path
 
 
 
