@@ -56,15 +56,37 @@ for events in pygame.event.get():
     if events.key == pygame.k_space:
       player_rect.y += 5 
 
-
-
-
-#mouse controls 
+#mouse controls 1
 for events in pygame.event.get():
-  if evetns.type == pygame.MOUSEMOTION:
-    print(events.pos) 
-      if events.type == pygame.MOUSEBUTTONDOWN and surface_position.colidepoint(events.pos): 
-        print("clicked on me ") 
+  if events.type == pygame.MOUSEMOTION:
+    g = events.pos
+  if events.type == pygame.MOUSEBUTTONDOWN and surface_position.colidepoint(events.pos): 
+    print("clicked on me ") 
+
+#mous conttols 2 
+          if events.type == pygame.MOUSEBUTTONDOWN:
+            g = pygame.mouse.get_pos() 
+            if surface2_pos.collidepoint(g):
+                print("you clicked on green") 
+            elif surface1_pos.collidepoint(g):
+                print("you clicked red") 
+
+#mouse controls 3
+#get the mous position 
+mouse = pygame.mouse.get_pos() 
+#get pressed vallues 
+pygame.mouse.get_pressed() 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
