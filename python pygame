@@ -48,10 +48,24 @@ player_rect.x = 500
 player_rect.y = 500 
 
 #rect collision 
-if player_rect.colliderect(surface_rect): player_rect.x = 700
+if player_rect.collidepoint(surface_rect): player_rect.x = 700
 
-#control 
+#key controls
 for events in pygame.event.get():
   if events.type == pygame.KEYDOWN: 
     if events.key == pygame.k_space:
       player_rect.y += 5 
+
+
+
+
+#mouse controls 
+for events in pygame.event.get():
+  if evetns.type == pygame.MOUSEMOTION:
+    print(events.pos) 
+      if events.type == pygame.MOUSEBUTTONDOWN and surface_position.colidepoint(events.pos): 
+        print("clicked on me ") 
+
+
+
+
