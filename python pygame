@@ -14,7 +14,7 @@ pygame.display.set_caption("the game")
 
 #create clock object and tick it to 60 fps, the tick must be inside of a loop 
 clock = pygame.time.Clock() 
-clock.tick(600 
+clock.tick(60) 
 
 #set repeating keys 
 pygame.key.set_repeat(1, 1)
@@ -28,6 +28,10 @@ for events in pygame.event.get():
 surface = pygame.surface((50, 50))              #size of the surface 
 surface.fill((255,0,0))                         #color of the surface 
 surface_rect = surface.get_rect(topleft=(50, 50))
+
+test_font = pygame.font.Font("font/pixeltype.ttf", font_size) #create font first value is font type second value is font size 
+text_surface = test_font.render("nada is een sukkel", False, (0,0,0)) #text, Anti aliasing,  color
+font_rect = test_surface.get_rect(center=(0, 50)) 
 
 #loading an image, must be converted so it works better with pygame 
 bg = pygame.image.load("image/sky.png").convert() 
