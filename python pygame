@@ -29,6 +29,12 @@ surface = pygame.surface((50, 50))              #size of the surface
 surface.fill((255,0,0))                         #color of the surface 
 surface_rect = surface.get_rect(topleft=(50, 50))
 
+#transparent surface 
+trans_surf = pygame.Surface((200, 200), pygame.SRCALPHA) 
+trans_surf = trans_surf.convert_alpha()
+trans_surf.fill((255 ,0, 255, 200))
+location = trans_surf.get_rect(topleft=(200, 200))
+
 test_font = pygame.font.Font("font/pixeltype.ttf", font_size) #create font first value is font type second value is font size 
 text_surface = test_font.render("nada is een sukkel", False, (0,0,0)) #text, Anti aliasing,  color
 font_rect = test_surface.get_rect(center=(0, 50)) 
