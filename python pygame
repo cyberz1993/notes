@@ -45,7 +45,7 @@ grount = pygame.image.load("image/ground.png").convert()
 
 #load image and scale image, create rectangle for the hitbox. 
 player_surface = pygame.image.load("image/player.png").convert_alpha() 
-player_scale = pygame.scale.transfom(player_surface, (50, 50))        #first vallue the image , second vallue the size 
+player_scale = pygame.transform.scale(player_surface, (50, 50))        #first vallue the image , second vallue the size 
 player_rect = player_scale.get_rect(topleft=(50, 50))
 screen.blit(player_scale, player_rect) 
 
