@@ -34,10 +34,6 @@ $password = convertto-securestring "Password1!" -asplaintext -force
 set-adaccountpassword "user1" -reset -newpassword $password
 
 
-
-
-
-
 #remote desktop 
 #get gatename and server name
 get-rdDeploymentGatewayConfiguration 
@@ -47,6 +43,12 @@ get-rdServer
 get-rdusersession 
 Disconnect-RDUser -HostServer server2019-rds01.zizo.local -UnifiedSessionID 4
 Invoke-RDUserLogoff -HostServer "server2019-rds01.zizo.local" -UnifiedSessionID 4
+
+#pssession 
+#test the connection 
+nslookup dc01 
+test-netconnection -port 5985 -computername dc01 
+test-wsman -computername dc01 
 
 
 
