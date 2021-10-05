@@ -50,5 +50,6 @@ nslookup dc01
 test-netconnection -port 5985 -computername dc01 
 test-wsman -computername dc01 
 
-
+#entering pssession 
+enter-pssession -computername dc01 
 
