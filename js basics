@@ -1,0 +1,32 @@
+#printing 
+document.write("hello") 
+
+#variables 
+var x = "hello" ;
+x = "what "               #var needs to be called only once for a new variable only 
+var x = null;             #null is the same a None in python 
+
+#unlike python u can print the string and int datatypes autmatically 
+name = "zizo";
+age = 22 
+document.write(name + age) 
+
+
+#function 
+function hello(){
+  alert("hello") 
+}
+hello(); 
+
+#function 2 
+var x = "tuna"
+function tuna(x){
+  document.write("i love " + x + "</br>");      #you can use html tags insdie of quotes and it will be treates as such
+}
+
+tuna(x) ; 
+
+#adding function to a form 
+<form>
+<input type="button" vallue="hello" onclick="hello()"> 
+</form> 
