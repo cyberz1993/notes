@@ -5,8 +5,45 @@ update-help
 get-alias cd 
 
 #ranaming the computer 
-rename-computer -newname server-dc -localcredential .\administrator -passthru 
+rename-computer -newname server-dc                                                                    #-localcredential .\administrator -passthru 
 restart-computer 
+
+
+#active directory 
+#unlock ad account 
+unlock-adaccount -identity user1
+
+#enable adaccount 
+enable-adaccount -identity user1 
+
+#reset password 
+get-aduser test1 
+get-aduser -filter "givenname -eq 'john' "    #grepable 
+$password = convertto-securestring "Password1!" -asplaintext -force 
+set-adaccountpassword "user1" -reset -newpassword $password
+
+#get user group memberships 
+get-adprincipalgroupmembership "username" | format-table samaccountname
+
+#set local admin 
+netplwiz 
+
+#install openssh client 
+get-windowscapability -online -name openssh.client~~~~0.0.1.0 
+add-windowscapability -online -name openssh.client~~~~0.0.1.0 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #get ip address (ipconig /all) 
@@ -18,21 +55,6 @@ get-netadapter                #grepable for configurations
 new-netipaddress -interfaceindex 1 -ipaddress 10.1.1.2 -defaultgateway 10.1.1.1 -prefixlength 24 
 set-netipinterface -interfaceindex 1 -dhcp enabled 
 set-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ("10.0.0.1","10.0.0.2")
-
-#active directory 
-#locking account 
-search-adaccount -lockedaccount 
-unlock-adaccount -identity user1
-
-#enabling/disable account 
-enable-adaccount -identity user1 
-
-#reset password 
-get-aduser test1 
-get-aduser -filter "givenname -eq 'john' "    #grepable 
-$password = convertto-securestring "Password1!" -asplaintext -force 
-set-adaccountpassword "user1" -reset -newpassword $password
-
 
 #remote desktop 
 #get gatename and server name
