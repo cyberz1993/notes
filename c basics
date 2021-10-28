@@ -29,3 +29,16 @@ hello[2] = "h"
 //variable 4 
 char food[] = "tuna";
 strcpy(food, "bacon");
+
+
+//permanent variables, placed on the top next to include
+#define name "zizo"
+#define number 55
+
+//importing libraries 
+#include <stdio.h> 
+#include "local.h"              // user quotes if the file is in the same directory.
+
+//scanning user input 
+char hello[20];
+scanf("%s", hello) 
