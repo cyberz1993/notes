@@ -42,3 +42,6 @@ strcpy(food, "bacon");
 //scanning user input 
 char hello[20];
 scanf("%s", hello) 
+
+//math operation 
+math operation work the same as in python.
