@@ -41,7 +41,11 @@ strcpy(food, "bacon");
 
 //scanning user input 
 char hello[20];
-scanf("%s", hello) 
+scanf("%s", hello); 
 
 //math operation 
 math operation work the same as in python.
+
+//converting data type 
+float a = 1.1 ;
+int b = (int)a; 
