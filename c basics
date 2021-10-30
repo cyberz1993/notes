@@ -49,3 +49,18 @@ math operation work the same as in python.
 //converting data type 
 float a = 1.1 ;
 int b = (int)a; 
+
+//if statement (you can also do nested loops in c) 
+if ( 5 < 10) {
+  printf("hello");
+}
+
+//if else 
+if (5 < 10) { 
+  print("hello") 
+}else{
+  print("bye")
+}
+
+
+
