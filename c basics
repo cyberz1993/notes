@@ -77,3 +77,13 @@ if (10 < 5){
   print("no way hozay") 
 }
 
+#and statement in c, is used with (and = &&, or = ||) 
+int a = 5
+int b = 6 
+if (a == b) && ( b == a) { 
+  printf("exatclty");
+}
+
+#shorthand if else
+char a = "hans";
+(hans[0] < "h") ? printf("red team") : printf("blue team") 
