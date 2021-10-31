@@ -62,5 +62,12 @@ if (5 < 10) {
   print("bye")
 }
 
-
+//else if 
+if (10 < 5){
+  printf("hello") 
+}else if (10> 5) {
+  print("hello there") {
+} else{
+  print("no way hozay") 
+}
 
