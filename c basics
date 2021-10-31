@@ -1,6 +1,12 @@
 /* boiler plate code */ 
 // boiler plate code 
 
+//installing gcc on linux 
+sudo apt-get install build-essential
+create a .c file 
+gcc test.c -o test 
+./test 
+
 #include <stdio.h> 
 #include <stdlib.h> 
 
