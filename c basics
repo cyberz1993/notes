@@ -87,3 +87,11 @@ if (a == b) && ( b == a) {
 #shorthand if else
 char a = "hans";
 (hans[0] < "h") ? printf("red team") : printf("blue team") 
+
+//while loops 
+int a = 1;
+while (a < 5) {
+  puts("hello") ;
+  a+;
+} 
+
