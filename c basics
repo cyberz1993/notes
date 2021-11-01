@@ -95,3 +95,9 @@ while (a < 5) {
   a+;
 } 
 
+// do while loop
+int a = 1;
+do {
+  a += 1; 
+}while(a < 5);
+
