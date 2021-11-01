@@ -101,3 +101,8 @@ do {
   a += 1; 
 }while(a < 5);
 
+//for loop 
+for (tuna = 1; tuna < 10; tuna++){
+  printf("hello \n") 
+} 
+
