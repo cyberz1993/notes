@@ -138,8 +138,16 @@ switch(let){
   default : printf("no score") ;
 }
 
+// ctype 
+#include <ctype.h> 
 
-
+int tuna = "a";
+if (isalpha(tuna)) {
+  printf("you chose a letter. \n") 
+}
+if (isdigit(tuna)) {
+  printf("you chose a number") 
+} 
 
 
 
