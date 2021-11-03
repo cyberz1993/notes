@@ -72,7 +72,7 @@ if (5 < 10) {
 if (10 < 5){
   printf("hello") 
 }else if (10> 5) {
-  print("hello there") {
+  print("hello there");
 } else{
   print("no way hozay") 
 }
@@ -113,3 +113,44 @@ for(number = 1; number < 10; number++){
     break;
   }
 }
+
+//continue statemenet (will reset the loop withoud looking further)
+// this loop wil skip printing the number 6
+int num = 1;
+
+do{
+  if(num == 6){
+    num++;
+    continue;
+  }
+  printf("%d ", num);
+  num++;
+}while(num < 10);
+  
+//switch statemen (skip for now) 
+char let = "C"; 
+
+switch(let){
+  case "A": printf("very good") ;
+            break;
+  case "C": printf("very bad") ;
+            break;
+  default : printf("no score") ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
