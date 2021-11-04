@@ -149,6 +149,13 @@ if (isdigit(tuna)) {
   printf("you chose a number") 
 } 
 
+//strcpy and strcat 
+char hello[] = "hello ";
+strcat(hello, "world") //adds world to the string  
+
+char hello[] = "hello "
+strcpy(hello, "hello world") //replaces the entire string 
+
 
 
 
