@@ -156,8 +156,23 @@ strcat(hello, "world") //adds world to the string
 char hello[] = "hello "
 strcpy(hello, "hello world") //replaces the entire string 
 
+//puts and gets 
+char name[100];
+puts("hello enter ur name");
+gets(name);           //difference between scanf and gets, gets takes the entire string with space. 
 
+//rounding up and down 
+#include math 
+float a = 5.5;
+int b = ceil(a);
+int c = floor(a);
 
+//absoluut vallue 
+#include <math.h> 
+int a = 1900;
+int b = 2000;
+int c = a - b;
+abs(c); //instead of negative 100 u get 100 to not get negative number which can crash program. 
 
 
 
