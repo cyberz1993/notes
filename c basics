@@ -191,6 +191,14 @@ int hello[5];
 scanf(" %d", &hello[0]) //the & sign allows u to select a number in the array??
 
 
+//pointers (points to memory address) 
+int tuna = 5;
+printf(" %p \t %s \t %d", &tuna, "tuna", tuna)
+
+//create a variable that stores the memory address 
+int tuna; 
+int * pTuna = &tuna; 
+printf(" %p", pTuna);
 
 
 
