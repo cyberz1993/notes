@@ -1,0 +1,23 @@
+#basics 
+
+________________________________________________________________________________________________________________________________________________________________________________________
+import discord
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print("bot is now online and ready to go") 
+
+@client.event
+async def on_message(message):
+    
+    if message.author == client.user:
+        return 
+    
+    if message.content == "hello":
+        await message.channel.send("yo") 
+
+token = "OTA3NzM5OTg5NDI3NzU3MDg2.YYrkvg.GOqVwm4XZjtSaaSgah5XlT5rXHw"
+client.run(token)
+
