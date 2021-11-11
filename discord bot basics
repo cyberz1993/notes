@@ -20,3 +20,37 @@ async def on_message(message):
 
 token = "copytokenhere"
 client.run(token)
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+#frame bot 
+#will load a json file wich is a dictionary of all the moves 
+#will listen for user inpu and print the frame of the moves 
+import discord, os, json 
+
+os.chdir(r"C:\Users\zizo\Desktop\test2") 
+with open("test.json", "r") as f:
+    data = json.load(f)
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print("bot online") 
+
+@client.event
+async def on_message(message):
+    
+    if message.author == client.user:
+        return 
+    
+    vallue = message.content
+    if "!" in vallue:
+        vallue = vallue[1:] 
+        new_vallue = vallue.split()
+        await message.channel.send(vallue + " " + data[new_vallue[0]][new_vallue[1]])
+        
+
+token = "OTA3NzM5OTg5NDI3NzU3MDg2.YYrkvg.lOHipyNfCqP6j6doXjADxHVUZPU"
+
+client.run(token)
+
