@@ -50,7 +50,7 @@ async def on_message(message):
         await message.channel.send(vallue + " " + data[new_vallue[0]][new_vallue[1]])
         
 
-token = "OTA3NzM5OTg5NDI3NzU3MDg2.YYrkvg.lOHipyNfCqP6j6doXjADxHVUZPU"
+token = "insert token here"
 
 client.run(token)
 
