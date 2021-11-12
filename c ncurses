@@ -1,0 +1,25 @@
+#include <ncurses> 
+//apt-get install build-essential 
+//gcc file.c -o file -lncurses && ./file
+
+int main(){
+  initscr();
+  addstr("hello world");
+  getch();
+  endwin();
+  return 0;
+
+}
+
+
+
+clear();               //clear screen
+refresh();             //refresh screen 
+napms(1000);          //pauze for x ms 
+
+//adding text 
+printw();
+addstr();
+addch();
+
+scanw();
