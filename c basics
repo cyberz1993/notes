@@ -202,7 +202,11 @@ printf(" %p", pTuna);
 
 //dereferncing a pointer (show the vallue of the variable of the pointer) 
 printf(" %d", *pTuna);
-*pTuna = 71 
+*pTuna = 71; 
 
-
+//user pointers to rename strings 
+char * tuna = "hello";
+puts(tuna) ;
+tuna = "yes";
+puts(tuna);
 
