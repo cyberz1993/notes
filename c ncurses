@@ -23,3 +23,11 @@ addstr();
 addch();
 
 scanw();
+
+
+
+clear();
+move(0, i);
+addstr("x");
+refresh();
+napms(50);
