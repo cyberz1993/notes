@@ -200,8 +200,9 @@ int tuna;
 int * pTuna = &tuna; 
 printf(" %p", pTuna);
 
-
-
+//dereferncing a pointer (show the vallue of the variable of the pointer) 
+printf(" %d", *pTuna);
+*pTuna = 71 
 
 
 
