@@ -210,3 +210,15 @@ puts(tuna) ;
 tuna = "yes";
 puts(tuna);
 
+//fgets 
+char hello[]
+char * pHello = hello;
+fgets(pHello, 20, stdin);
+
+//sizeof() 
+int a;
+printf(" %d:, sizeof(a))    //will print out 4, 4 bytes or 32 bits 
+long long int a;        
+printf(" %d", sizeof(a))    //prints 8 bytes or 64 bits
+
+//heap    malloc() 
