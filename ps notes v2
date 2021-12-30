@@ -78,4 +78,6 @@ enter-pssession -computername dc01
 
 
 #set proxy addresses 
+Set-ADUser Adrienne.Williams -add @{ProxyAddresses="smtp:adrienne.williams.mail.onmicrosoft.com,SMTP:adrienne.williams.mail.onmicrosoft.com" -split ","}
+#replace preoxy addresses
 Set-ADUser Adrienne.Williams -replace @{ProxyAddresses="SMTP:adrienne.williams.activedirectorypro.com"}
