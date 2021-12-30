@@ -1,0 +1,14 @@
+# reading a file 
+
+with open("text.txt", "r") as f:
+  f.read().split(" ") #to split lines enter, f.split().splitlines() or f.readlines() 
+  
+  
+#write to file 
+
+with open("text.txt", "w") as f: 
+  f.write("hello \n") 
+  
+#append to file 
+with open("text.txt", "a" as f:
+  f.write("hello \n") 
