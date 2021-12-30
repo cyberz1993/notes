@@ -1,0 +1,15 @@
+import os
+
+os.getcwd() 
+os.mkdir("new") 
+os.rmdir("new") 
+os.listdir() 
+os.listdir("/") 
+
+#check if item is a file
+for items in os.listdir():
+  if os.path.isfile(items): 
+    print(items + "is a file") 
+  else: 
+    print(items + "is a directory") 
+
