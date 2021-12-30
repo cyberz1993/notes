@@ -77,6 +77,8 @@ enter-pssession -computername dc01
 
 
 
+#create a new ad user 
+new-aduser
 #set proxy addresses 
 Set-ADUser Adrienne.Williams -add @{ProxyAddresses="smtp:adrienne.williams.mail.onmicrosoft.com,SMTP:adrienne.williams.mail.onmicrosoft.com" -split ","}
 #replace preoxy addresses
