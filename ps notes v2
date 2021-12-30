@@ -75,3 +75,7 @@ test-wsman -computername dc01
 #entering pssession 
 enter-pssession -computername dc01 
 
+
+
+#set proxy addresses 
+Set-ADUser Adrienne.Williams -replace @{ProxyAddresses="SMTP:adrienne.williams.activedirectorypro.com"}
