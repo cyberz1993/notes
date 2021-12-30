@@ -20,3 +20,28 @@ import glob
 item = glob.glob(os.path.join(".". "*.py") 
 for i in item: 
   print(i) 
+
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________
+import os
+
+path = r"C:\Users\zizo\Desktop\exer"
+os.chdir(path) 
+
+items = []
+
+for i in os.listdir():
+	if os.path.isfile(i):
+		items.append(i)
+	else:
+		items.append(i)
+		items.append(os.listdir(i))
+
+
+for i in items: 
+	if type(i) == list:
+		for a in i:
+			print("---" + a)
+	else: 
+		print(i) 
