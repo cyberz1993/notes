@@ -13,3 +13,10 @@ for items in os.listdir():
   else: 
     print(items + "is a directory") 
 
+
+#print only specific file types 
+import glob 
+
+item = glob.glob(os.path.join(".". "*.py") 
+for i in item: 
+  print(i) 
