@@ -12,3 +12,10 @@ with open("text.txt", "w") as f:
 #append to file 
 with open("text.txt", "a" as f:
   f.write("hello \n") 
+
+
+
+
+#renaming files 
+import os 
+os.rename("text.txt", "files.txt") 
