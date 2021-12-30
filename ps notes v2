@@ -76,6 +76,8 @@ test-wsman -computername dc01
 enter-pssession -computername dc01 
 
 
+#move ad object 
+Move-ADObject -Identity:"CN=hans is anders,CN=Users,DC=garbage,DC=local" -Server:"master.garbage.local" -TargetPath:"OU=testing,DC=garbage,DC=local"
 
 #create a new ad user 
 new-aduser
