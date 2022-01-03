@@ -93,7 +93,8 @@ $groups = get-adprincipalgroupmembership -identity user1
 add-adprincipalgroupmembership -identity user2 -memberof $groups
 
 #add home directory
-set-aduser -identity user1 -homedirectory \\master\home\user1 -homedrive "z" 
-
 #add profile path
+set-aduser -identity user1 -homedirectory \\master\home\user1 -homedrive "z" -profilepath \\master\profiles\user1 
+
+
 
