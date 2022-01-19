@@ -99,6 +99,11 @@ set-aduser -identity user1 -homedirectory \\master\home\user1 -homedrive "z" -pr
 
 
 
+#create account 
+New-ADUser -DisplayName:"johny cage" -GivenName:"johny" -Name:"johny cage" -Path:"CN=Users,DC=garbage,DC=local" -SamAccountName:"johny" -Server:"master.garbage.local" -Surname:"cage" -Type:"user" -UserPrincipalName:"johny@garbage.local"
+Set-ADAccountPassword -Identity:"CN=johny cage,CN=Users,DC=garbage,DC=local" -NewPassword:"System.Security.SecureString" -Reset:$true -Server:"master.garbage.local"
+Enable-ADAccount -Identity:"CN=johny cage,CN=Users,DC=garbage,DC=local" -Server:"master.garbage.local"
+Set-ADAccountControl -AccountNotDelegated:$false -AllowReversiblePasswordEncryption:$false -CannotChangePassword:$false -DoesNotRequirePreAuth:$false -Identity:"CN=johny cage,CN=Users,DC=garbage,DC=local" -PasswordNeverExpires:$false -Server:"master.garbage.local" -UseDESKeyOnly:$false
 
 #save the value of a username as a string 
 $username = get-aduser -filter "SamAccountName -eq 'user'" | % {$_.SamAccountName}
