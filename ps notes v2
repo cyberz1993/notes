@@ -98,3 +98,7 @@ set-aduser -identity user1 -homedirectory \\master\home\user1 -homedrive "z" -pr
 
 
 
+
+
+#save the value of a username as a string 
+$username = get-aduser -filter "SamAccountName -eq 'user'" | % {$_.SamAccountName}
