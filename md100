@@ -1,0 +1,8 @@
+#shutdown now
+shutdown /l
+
+#ui is user include 
+#ue is user exclude
+#*\* is a wild card for all users
+scanstate \\plabdm02\migstore /UI:practicelabs\kyoshida /UE:*\* /i:miguser.xml /i:migapp.xml
+loadstate \\plabdm02\migstore /UI:practicelabs\kyoshida /UE:*\* /i:miguser.xml /i:migapp.xml
