@@ -6,3 +6,12 @@ shutdown /l
 #*\* is a wild card for all users
 scanstate \\plabdm02\migstore /UI:practicelabs\kyoshida /UE:*\* /i:miguser.xml /i:migapp.xml
 loadstate \\plabdm02\migstore /UI:practicelabs\kyoshida /UE:*\* /i:miguser.xml /i:migapp.xml
+
+
+
+
+## install wds 
+install-windowsfeature wds -includemanagementtools
+
+#create new machine in powershell 
+New-VM -VMName PLABWIN102 -MemoryStartupBytes 2GB -NewVHDPath “E:\VM\PLABWIN102\Virtual Hard Disk\PLABWIN102.vhdx” -NewVHDSizeBytes 30GB -Version 5.0
