@@ -15,3 +15,13 @@ install-windowsfeature wds -includemanagementtools
 
 #create new machine in powershell 
 New-VM -VMName PLABWIN102 -MemoryStartupBytes 2GB -NewVHDPath “E:\VM\PLABWIN102\Virtual Hard Disk\PLABWIN102.vhdx” -NewVHDSizeBytes 30GB -Version 5.0
+
+
+
+#export start layout 
+cd\
+md win10 
+export-startlayout -path c:\win10\start.xml
+# edit group policy 
+On the Group Policy Management Editor window, expand User Configuration > Policies > Administrative Templates and click the Start Menu and Taskbar folder.
+On the details pane, click and then right-click Start Layout, and select Edit.
