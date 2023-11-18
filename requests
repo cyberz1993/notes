@@ -1,0 +1,20 @@
+import requests 
+
+
+# get a status code
+res = requests.get(url="http://10.10.10.10/api")
+print(res.code_status) #this will print the http response code as integer
+
+#print json format
+print(res.json) #this will show json data from the web page
+
+
+
+#mini dirbuster program that shows the json of the 200 response http code
+for word in sys.stdin:
+    res = requests.get(url="http://10.129.227.148/" + word)
+    print(res.status_code)
+    if res.status_code == 200:
+        print(res.json())
+
+# to run enter the following command: cat word.txt | python3 main.py
