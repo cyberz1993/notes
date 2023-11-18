@@ -18,3 +18,36 @@ for word in sys.stdin:
         print(res.json())
 
 # to run enter the following command: cat word.txt | python3 main.py
+
+
+
+
+
+#recursive api scanner
+import requests
+import sys
+
+
+def crawl(i=None, word=None):
+    link = "http://10.129.227.148/"
+    lord = i 
+    if lord == None:
+        for word in sys.stdin:
+            res = requests.get(url=link+ word)
+            print(res.status_code)
+            if res.status_code == 200:
+                for i in res.json():
+                    print(res.json())
+                    crawl(res.json()[i][0] + "/", word.strip("\n") + "/")
+    else: 
+        res = requests.get(url=link+word+i)
+        print(res.json())
+        for i in res.json():
+            if i == 'detail':
+                break;
+            for j in res.json()[i]:
+                crawl(j+"/", link+word+i) 
+                    
+
+
+crawl()
